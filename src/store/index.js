@@ -1,21 +1,23 @@
 import React, { createContext, useContext, useReducer } from 'react';
+import PropTypes from 'prop-types';
+import reducers from './reducers';
+import { INITIAL_STATE as PRODUCT_INITIAL_STATE } from './climate/reducers';
 
-import { applyMiddleware } from './middleware';
-
-import reducer from './reducer';
+const initialState = {
+  product: PRODUCT_INITIAL_STATE,
+};
 
 export const Context = createContext();
 
-const combinedReducers = (state = {}, action = {}) => Object.assign({}, ...Object.keys(reducer).map(k => ({ [k]: reducer[k](state[k], action) })));
+export const Provider = ({ children }) => (
+  <Context.Provider value={useReducer(reducers, initialState)}>
+    {children}
+  </Context.Provider>
+);
 
-export default function Provider({ children }) {
-    const [state, dispatch] = useReducer(combinedReducers, combinedReducers({}));
-
-    return (
-        <Context.Provider value={[state, applyMiddleware(dispatch)]}>
-            {children}
-        </Context.Provider>
-    )
+Provider.propTypes = {
+  children: PropTypes.shape({}),
 };
+
 
 export const useStore = () => useContext(Context);
