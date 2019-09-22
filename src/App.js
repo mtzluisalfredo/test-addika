@@ -1,5 +1,5 @@
 import React from 'react';
-import Root from './routes/Index'
+import Root from './routes/Index';
 import './App.css';
 import { Provider } from './store';
 

@@ -1,5 +1,7 @@
 import climateReducer from './climate/reducers';
 
-export default ({ climate }, action) => ({
-  climate: climateReducer(climate, action)
-});
+export default ({ climate }, action) => {
+  return {
+    climate: climateReducer(climate, action),
+  };
+};

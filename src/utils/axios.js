@@ -1,24 +1,23 @@
-import axios from 'axios'
-import api from './services'
+/* eslint-disable no-param-reassign */
+import axios from 'axios';
+import api from './services';
 
 export default function () {
-  // Create a basic Axios instance to all requests (this object can be customized before making the call)
   const instance = axios.create({
     baseURL: api.server,
     headers: {
       'Content-Type': 'application/json',
-    }
+    },
   });
 
-  // Insert token on all requests when there is a token in the device storage
-  instance.interceptors.request.use(async function (config) {
+  instance.interceptors.request.use(async config => {
     const token = localStorage.getItem('access_token');
 
     if (token) {
-      config.headers.common['Authorization'] = `Bearer ${token}`
+      config.headers.common.Authorization = `Bearer ${token}`;
     }
 
-    return config
+    return config;
   });
 
   instance.interceptors.response.use(
@@ -28,15 +27,13 @@ export default function () {
         localStorage.clear();
       }
 
-      console.log('REQUEST error', error);
-
       if (!error.response) {
-        error.response = {data: {genericError: error}};
+        error.response = { data: { genericError: error } };
       }
 
-      return Promise.reject(error)
-    }
+      return Promise.reject(error);
+    },
   );
 
-  return instance
+  return instance;
 }

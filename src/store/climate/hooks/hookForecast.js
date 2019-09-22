@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import { useStore } from '../../index'
-import { forecastQuery } from '../queries'
-import { forecastAction } from '../actions'
+import { useState } from 'react';
+import { useStore } from '../../index';
+import forecastQuery from '../queries';
+import { forecastAction } from '../actions';
 
 const useForecast = () => {
   const [{ climate }, dispatch] = useStore();
@@ -10,16 +10,16 @@ const useForecast = () => {
   const requestForecast = async () => {
     setIsLoading(true);
     const response = await forecastQuery();
-    if (response ) {
+    if (response) {
       dispatch(forecastAction(response));
     } else {
       const err = [];
       dispatch(forecastAction(err));
     }
-    setIsLoading(false)
+    setIsLoading(false);
   };
 
-  return [climate, isLoading, requestForecast]
+  return [climate, isLoading, requestForecast];
 };
 
-export default useForecast
+export default useForecast;
