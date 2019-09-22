@@ -1,6 +1,6 @@
 import React from 'react';
 import Root from './routes/Index';
-import './App.css';
+import './App.scss';
 import { Provider } from './store';
 
 function App() {
