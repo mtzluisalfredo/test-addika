@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Button } from 'antd';
 import useForecast from '../store/climate/hooks/hookForecast';
 
 
@@ -14,6 +15,7 @@ export default function Home() {
   return (
     <div className='home'>
       <h1>Contador</h1>
+      <Button type='primary'>Button</Button>
     </div>
   );
 }
