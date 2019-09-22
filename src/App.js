@@ -1,20 +1,13 @@
 import React from 'react';
-import { HashRouter as Router, Switch, Route } from 'react-router-dom';
-import Layout from './Components/Layout';
-import Home from './Pages/Home';
+import Root from './routes/Index'
 import './App.css';
+import { Provider } from './store';
 
 function App() {
   return (
-    <div className="app">
-      <Router>
-        <Layout>
-          <Switch>
-            <Route exact path="/" component={Home}></Route>
-          </Switch>
-        </Layout>
-      </Router>
-    </div>
+    <Provider>
+      <Root />
+    </Provider>
   );
 }
 
