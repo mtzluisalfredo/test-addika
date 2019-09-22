@@ -1,15 +1,18 @@
-import React from 'react';
-import { useStore } from './../store';
-import { increment, decrement } from './../store/actions';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from 'react'
+import useForecast from '../store/climate/hooks/hookForecast'
 
-export default function Home() {
-  const [state, dispatch] = useStore();
+
+export default function Home(props) {
+  const [climate, isLoading, requestForecast] = useForecast();
+  console.log('TCL: Home -> setAlbum', requestForecast)
+    useEffect(() => {
+      requestForecast();
+    }, []);
+
   return (
     <div className='home'>
       <h1>Contador</h1>
-      <h3>{state.counter}</h3>
-      <button onClick={() => increment(dispatch)}>Increment</button>
-      <button onClick={() => decrement(dispatch)}>Decrement</button>
     </div>
   )
 }
