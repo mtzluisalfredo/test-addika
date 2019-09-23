@@ -1,18 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Layout, Row, Col } from 'antd';
+import { Layout, Row, Col, Avatar, Button, Input, Icon } from 'antd';
 
 const { Header } = Layout;
 
 const HeaderCustom = ({ content }) => (
-  <Layout className='bg-dynamic'>
+  <Layout className='ad-layout'>
     <Header>
       <Row>
-        <Col span={18} push={6}>
-          Luis
+        <Col className='flex' span={12}>
+          <Button className='ad-btn-menu' type='primary' icon='menu' />
+          <Input
+            className='ad-search'
+            prefix={<Icon type='search' style={{ color: 'rgba(0,0,0,.25)' }} />}
+            placeholder='large size'
+          />
         </Col>
-        <Col className='logo-header' span={6} pull={18}>
-          Alfredo
+        <Col className='flex ad-header-actions' span={12}>
+          <div className='ad-actions-user'>
+            <Avatar size='large' icon='user' />
+          </div>
         </Col>
       </Row>
 
