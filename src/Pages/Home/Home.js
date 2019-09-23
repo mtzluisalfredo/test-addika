@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { Button, Menu, Dropdown, Icon } from 'antd';
-import useForecast from '../store/climate/hooks/hookForecast';
-import { ForecastDay, SideBar } from '../Components';
-
+import useForecast from '../../store/climate/hooks/hookForecast';
+import { ForecastDay, SideBar } from '../../Components';
+import './style.scss';
 
 const menu = (
   <Menu>
@@ -30,7 +30,7 @@ export default function Home() {
   }, [climate]);
 
   let renderDays = <div>No hay pronóstico</div>;
-  let renderDaySelected = { title: 'Moderate or heavy rain shower' };
+  let renderDaySelected = {};
 
   if (climate && !isLoading) {
     const { itemSelected, forecastState } = climate;
