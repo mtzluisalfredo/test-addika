@@ -1,14 +1,20 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Layout from '../Components/Layout';
+import { Layout } from 'antd';
 import Home from '../Pages/Home';
+import HeaderCustom from '../Components/HeaderCustom';
+
+const content = (
+  <Switch>
+    <Route exact path='/' component={Home} />
+  </Switch>
+);
+
 
 const Root = () => (
   <Router>
-    <Layout>
-      <Switch>
-        <Route exact path='/' component={Home} />
-      </Switch>
+    <Layout className='layout-routes'>
+      <HeaderCustom content={content} />
     </Layout>
   </Router>
 );
