@@ -6,7 +6,6 @@ import './style.scss';
 const { Title } = Typography;
 
 const SideBar = ({ itemSelected }) => {
-  // console.log('TCL: SideBar -> itemSelected', itemSelected)
   const { name, region, country, date, day, astro } = itemSelected;
   const dayTitle = day ? day.condition.text : '';
   const dayIcon = day ? day.condition.icon : '';
