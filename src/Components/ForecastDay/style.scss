@@ -1,0 +1,32 @@
+.article-img {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px !important;
+  height: 180px !important;
+  width: 100%;
+  min-width: 180px;
+  white-space: normal !important;
+
+  img {
+    width: 80px;
+  }
+}
+
+.item {
+  &-date {
+    width: 100%;
+    text-align: end;
+  }
+  &-footer {
+    height: 40px;
+    line-height: 1.1;
+    width: 100%;
+    text-align: start;
+
+    span {
+      font-size: 17px;
+      color: #5897d0;
+    }
+  }
+}

@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import { Button, Menu, Dropdown, Icon } from 'antd';
-import useForecast from '../store/climate/hooks/hookForecast';
-import { DayItem, SideBar } from '../Components';
-
+import useForecast from '../../store/climate/hooks/hookForecast';
+import { ForecastDay, SideBar } from '../../Components';
+import './style.scss';
 
 const menu = (
-  <Menu>
+  <Menu style={{ marginLeft: 8 }}>
     <Menu.Item>
-      <Button style={{ marginLeft: 8 }} type='link'>°C</Button>
+      <Button type='link'>°C</Button>
     </Menu.Item>
     <Menu.Item>
-      <Button style={{ marginLeft: 8 }} type='link'>°F</Button>
+      <Button type='link'>°F</Button>
     </Menu.Item>
   </Menu>
 );
@@ -23,8 +23,6 @@ export default function Home() {
     }
     if (climate) {
       const { itemSelected, forecastState } = climate;
-      console.log('TCL: Home -> itemSelected', itemSelected);
-      // console.log('TCL: Home -> forecastState', forecastState)
       if (!itemSelected) {
         requestItem(Object.assign(forecastState.forecast.forecastday[0], forecastState.location));
       }
@@ -32,13 +30,13 @@ export default function Home() {
   }, [climate]);
 
   let renderDays = <div>No hay pronóstico</div>;
-  let renderDaySelected = { title: 'Moderate or heavy rain shower' };
+  let renderDaySelected = {};
 
   if (climate && !isLoading) {
     const { itemSelected, forecastState } = climate;
     renderDaySelected = itemSelected;
     renderDays = forecastState.forecast.forecastday.map((item, index) => (
-      <DayItem
+      <ForecastDay
         click={selected => requestItem(Object.assign(selected, forecastState.location))}
         index={index}
         item={item}

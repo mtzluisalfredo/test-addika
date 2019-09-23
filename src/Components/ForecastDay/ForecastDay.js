@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Typography, Button } from 'antd';
+import './style.scss';
 
 const { Text } = Typography;
 
-const DayItem = ({ item, index, click }) => {
+const ForecastDay = ({ item, index, click }) => {
   const { date, day } = item;
   const { condition, maxtemp_c, mintemp_c } = day;
   const { icon, text } = condition;
@@ -13,18 +14,17 @@ const DayItem = ({ item, index, click }) => {
     <Button
       key={`${index.toString()}item`}
       onClick={() => click(item)}
-      className='flex article-img shadow'
-      type='link'
+      className='flex article-img'
     >
       <div className='item-date'><Text>{date}</Text></div>
-      <img className='climate-icon' src={icon} alt='icon climate addika' />
+      <img src={icon} alt='icon climate addika' />
       <Text>{`${maxtemp_c}/${mintemp_c}`}</Text>
       <div className='item-footer'><Text>{text}</Text></div>
     </Button>
   );
 };
 
-DayItem.propTypes = {
+ForecastDay.propTypes = {
   click: PropTypes.func,
   index: PropTypes.number,
   item: PropTypes.shape({
@@ -40,4 +40,4 @@ DayItem.propTypes = {
   }),
 };
 
-export default DayItem;
+export default ForecastDay;

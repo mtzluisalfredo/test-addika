@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Typography } from 'antd';
+import './style.scss';
 
 const { Title } = Typography;
 
@@ -11,10 +12,10 @@ const SideBar = ({ itemSelected }) => {
   const dayIcon = day ? day.condition.icon : '';
   const dayAstro = astro || {};
 
-  let rendeDayAstro = <div />;
+  let renderDayAstro = <div />;
 
   if (Object.keys(dayAstro).length > 0) {
-    rendeDayAstro = Object.entries(dayAstro).map(([key, value]) => (
+    renderDayAstro = Object.entries(dayAstro).map(([key, value]) => (
       <p>
         <strong key={key}>
           <span>{value.toString()}</span>
@@ -29,10 +30,10 @@ const SideBar = ({ itemSelected }) => {
   return (
     <div className='nav flex'>
       <Title className='nav-title'>{dayTitle}</Title>
-      <img className='climate-icon' src={dayIcon} alt='icon climate addika' />
+      <img src={dayIcon} alt='icon climate addika' />
       <Title className='nav-title' level={4}>{date}</Title>
       <Title className='nav-title' level={4}>{`${name}, ${region}, ${country}`}</Title>
-      <div className='item-astro'>{rendeDayAstro}</div>
+      <div className='item-astro'>{renderDayAstro}</div>
     </div>
   );
 };

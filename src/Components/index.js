@@ -1,10 +1,9 @@
 import HeaderCustom from './HeaderCustom';
-import DayItem from './DayItem';
+import ForecastDay from './ForecastDay';
 import SideBar from './SideBar';
-
 
 export {
   HeaderCustom,
-  DayItem,
+  ForecastDay,
   SideBar,
 };
