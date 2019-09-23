@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Layout, Row, Col, Avatar, Button, Input, Icon, Menu, Dropdown } from 'antd';
+import { Layout, Row, Col, Avatar, Button, Input, Icon, Menu, Dropdown, Badge } from 'antd';
 
 const { Header } = Layout;
 
@@ -25,10 +25,15 @@ const HeaderCustom = ({ content }) => (
           <Input
             className='ad-search'
             prefix={<Icon type='search' style={{ color: 'rgba(0,0,0,.25)' }} />}
-            placeholder='large size'
+            placeholder='Search for any city...'
           />
         </Col>
         <Col className='flex ad-header-actions' span={12}>
+          <div>
+            <Badge style={{ left: 8 }} count={2}>
+              <Icon type='message' style={{ fontSize: '18px', color: '#08c' }} theme='outlined' />
+            </Badge>
+          </div>
           <div className='ad-name-user'>
             <Dropdown placement='bottomLeft' overlay={menu}>
               <span>
