@@ -1,6 +1,19 @@
 import React, { useEffect } from 'react';
+import { Button, Menu, Dropdown, Icon } from 'antd';
 import useForecast from '../store/climate/hooks/hookForecast';
 import { DayItem, SideBar } from '../Components';
+
+
+const menu = (
+  <Menu>
+    <Menu.Item>
+      <Button style={{ marginLeft: 8 }} type='link'>°C</Button>
+    </Menu.Item>
+    <Menu.Item>
+      <Button style={{ marginLeft: 8 }} type='link'>°F</Button>
+    </Menu.Item>
+  </Menu>
+);
 
 export default function Home() {
   const [climate, isLoading, requestForecast, requestItem] = useForecast();
@@ -35,6 +48,17 @@ export default function Home() {
     <div className='container'>
       <SideBar itemSelected={renderDaySelected} />
       <div className='main'>
+        <div className='flex actions-content'>
+          <div className='flex btn-actions'>
+            <Button onClick={() => requestForecast()} type='primary'>Start new forecast</Button>
+            <Dropdown placement='bottomLeft' overlay={menu}>
+              <span>
+              °C
+                <Icon type='down' />
+              </span>
+            </Dropdown>
+          </div>
+        </div>
         <section className='cards'>
           {renderDays}
         </section>
