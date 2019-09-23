@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useStore } from '../../index';
 import forecastQuery from '../queries';
-import { forecastAction } from '../actions';
+import { forecastAction, selectItemAction } from '../actions';
 
 const useForecast = () => {
   const [{ climate }, dispatch] = useStore();
@@ -19,7 +19,11 @@ const useForecast = () => {
     setIsLoading(false);
   };
 
-  return [climate, isLoading, requestForecast];
+  const requestItem = item => {
+    dispatch(selectItemAction(item));
+  };
+
+  return [climate, isLoading, requestForecast, requestItem];
 };
 
 export default useForecast;
