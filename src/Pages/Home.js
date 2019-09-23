@@ -9,11 +9,11 @@ export default function Home() {
     requestForecast();
   }, []);
 
-  let renderDays = <div />;
+  let renderDays = <></>;
 
   if (climate && !isLoading) {
-    renderDays = climate.forecastState.forecast.forecastday.map(item => (
-      <DayItem item={item} />
+    renderDays = climate.forecastState.forecast.forecastday.map((item, index) => (
+      <DayItem index={index} item={item} />
     ));
   }
 
