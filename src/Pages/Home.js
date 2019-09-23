@@ -23,6 +23,8 @@ export default function Home() {
     }
     if (climate) {
       const { itemSelected, forecastState } = climate;
+      console.log('TCL: Home -> itemSelected', itemSelected);
+      // console.log('TCL: Home -> forecastState', forecastState)
       if (!itemSelected) {
         requestItem(Object.assign(forecastState.forecast.forecastday[0], forecastState.location));
       }
