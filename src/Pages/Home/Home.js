@@ -5,12 +5,12 @@ import { ForecastDay, SideBar } from '../../Components';
 import './style.scss';
 
 const menu = (
-  <Menu>
+  <Menu style={{ marginLeft: 8 }}>
     <Menu.Item>
-      <Button style={{ marginLeft: 8 }} type='link'>°C</Button>
+      <Button type='link'>°C</Button>
     </Menu.Item>
     <Menu.Item>
-      <Button style={{ marginLeft: 8 }} type='link'>°F</Button>
+      <Button type='link'>°F</Button>
     </Menu.Item>
   </Menu>
 );

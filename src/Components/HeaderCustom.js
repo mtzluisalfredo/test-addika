@@ -1,8 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Layout, Row, Col, Avatar, Button, Input, Icon } from 'antd';
+import { Layout, Row, Col, Avatar, Button, Input, Icon, Menu, Dropdown } from 'antd';
 
 const { Header } = Layout;
+
+const menu = (
+  <Menu style={{ right: 15 }}>
+    <Menu.Item>
+      <Button type='link'>Action 1</Button>
+    </Menu.Item>
+    <Menu.Item>
+      <Button type='link'>Action 1</Button>
+    </Menu.Item>
+  </Menu>
+);
+
 
 const HeaderCustom = ({ content }) => (
   <Layout className='ad-layout'>
@@ -17,6 +29,14 @@ const HeaderCustom = ({ content }) => (
           />
         </Col>
         <Col className='flex ad-header-actions' span={12}>
+          <div className='ad-name-user'>
+            <Dropdown placement='bottomLeft' overlay={menu}>
+              <span>
+                Luis Alfredo
+                <Icon type='down' />
+              </span>
+            </Dropdown>
+          </div>
           <div className='ad-actions-user'>
             <Avatar size='large' icon='user' />
           </div>
