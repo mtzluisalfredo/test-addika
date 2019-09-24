@@ -8,4 +8,4 @@ En el directorio del proyecto, puede ejecutar:
 Para ejecutar las pruebas
 
 ### `npm start`
-### `test-chrome`
+### `npm run test-chrome`
