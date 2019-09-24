@@ -31,18 +31,18 @@ const HeaderCustom = ({ content }) => (
         <Col className='flex ad-header-actions'>
           <div className='flex ad-wrapper-notifications'>
             <div className='ad-wrapper-badge'>
-              <Badge style={{ left: 8 }} count={2}>
-                <Icon type='message' style={{ fontSize: '18px', color: '#08c' }} theme='outlined' />
+              <Badge className='ad-icon-badge' count={2}>
+                <Icon type='wechat' theme='outlined' />
               </Badge>
             </div>
             <div className='ad-wrapper-badge'>
-              <Badge style={{ left: 8 }} count={2}>
-                <Icon type='message' style={{ fontSize: '18px', color: '#08c' }} theme='outlined' />
+              <Badge className='ad-icon-badge' count={2}>
+                <Icon type='bell' theme='outlined' />
               </Badge>
             </div>
             <div className='ad-wrapper-badge'>
-              <Badge style={{ left: 8 }} count={2}>
-                <Icon type='message' style={{ fontSize: '18px', color: '#08c' }} theme='outlined' />
+              <Badge className='ad-icon-badge' count={2}>
+                <Icon type='inbox' theme='outlined' />
               </Badge>
             </div>
           </div>
