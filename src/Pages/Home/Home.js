@@ -4,19 +4,8 @@ import useForecast from '../../store/climate/hooks/hookForecast';
 import { ForecastDay, SideBar } from '../../Components';
 import './style.scss';
 
-const menu = (
-  <Menu style={{ marginLeft: 8 }}>
-    <Menu.Item>
-      <Button type='link'>°C</Button>
-    </Menu.Item>
-    <Menu.Item>
-      <Button type='link'>°F</Button>
-    </Menu.Item>
-  </Menu>
-);
-
 export default function Home() {
-  const [climate, isLoading, requestForecast, requestItem] = useForecast();
+  const [climate, isLoading, requestForecast, requestItem, requestTypeUnit] = useForecast();
   useEffect(() => {
     if (!climate) {
       requestForecast();
@@ -31,18 +20,33 @@ export default function Home() {
 
   let renderDays = <div>No hay pronóstico</div>;
   let renderDaySelected = {};
+  let renderType = '';
 
   if (climate && !isLoading) {
-    const { itemSelected, forecastState } = climate;
+    const { itemSelected, forecastState, typeCelsius } = climate;
     renderDaySelected = itemSelected;
+    renderType = typeCelsius ? '°C' : '°F';
     renderDays = forecastState.forecast.forecastday.map((item, index) => (
       <ForecastDay
+        renderType={renderType}
+        typeCelsius={typeCelsius}
         click={selected => requestItem(Object.assign(selected, forecastState.location))}
         index={index}
         item={item}
       />
     ));
   }
+
+  const menu = (
+    <Menu style={{ marginLeft: 8 }}>
+      <Menu.Item>
+        <Button id='type-c' onClick={() => requestTypeUnit(true)} type='link'>°C</Button>
+      </Menu.Item>
+      <Menu.Item>
+        <Button id='type-f' onClick={() => requestTypeUnit(false)} type='link'>°F</Button>
+      </Menu.Item>
+    </Menu>
+  );
 
   return (
     <div className='container'>
@@ -53,7 +57,7 @@ export default function Home() {
             <Button onClick={() => requestForecast()} type='primary'>Start new forecast</Button>
             <Dropdown placement='bottomLeft' overlay={menu}>
               <span>
-              °C
+                {renderType}
                 <Icon type='down' />
               </span>
             </Dropdown>

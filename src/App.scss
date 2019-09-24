@@ -2,7 +2,11 @@
 
 body {
   height: 100vh;
-  min-width: 400px;
+  min-width: 480px;
+}
+
+[ant-click-animating-without-extra-node]:after {
+  animation: 0s !important;
 }
 
 .flex {
@@ -18,30 +22,4 @@ body {
     background: #fff;
     padding: 0;
   }
-}
-
-.ad-btn-menu {
-  height: 64px;
-  border-radius: 0;
-  width: 70px;
-
-  i {
-    font-size: 20px;
-  }
-}
-
-.ad-search {
-  input {
-    border-radius: 0;
-    border: none;
-  }
-}
-
-.ad-header-actions {
-  justify-content: flex-end;
-  padding: 0 60px 0 10px;
-}
-
-.ad-name-user {
-  margin: 0px 10px;
 }

@@ -5,18 +5,20 @@
   "dependencies": {
     "antd": "^3.23.4",
     "axios": "^0.19.0",
+    "moment": "^2.24.0",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.0.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "start": "webpack-dev-server --open --port 4040 --config webpack.dev.js",
     "build-dev": "webpack --mode development",
     "build-prod": "webpack --mode production",
     "lint-all": "eslint '**/*.{js,scss}'",
     "lint-js": "eslint src/",
-    "lint": "npm run lint-all && npm run lint-js"
+    "lint": "npm run lint-all && npm run lint-js",
+    "test-chrome": "BASE_URL=http://localhost:4040 testcafe chrome tests/ -e"
   },
   "lint-staged": {
     "*.{js,jsx}": [
@@ -64,6 +66,7 @@
     "prettier-eslint": "^9.0.0",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
+    "testcafe": "^1.4.3",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "url-loader": "^2.1.0",
     "webpack": "^4.40.2",
