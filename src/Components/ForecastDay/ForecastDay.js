@@ -12,6 +12,7 @@ const ForecastDay = ({ item, index, click }) => {
 
   return (
     <Button
+      htmlType='button'
       key={`${index.toString()}item`}
       onClick={() => click(item)}
       className='flex article-img'

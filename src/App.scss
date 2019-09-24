@@ -5,6 +5,10 @@ body {
   min-width: 400px;
 }
 
+[ant-click-animating-without-extra-node]:after {
+  animation: 0s !important;
+}
+
 .flex {
   display: flex;
 }

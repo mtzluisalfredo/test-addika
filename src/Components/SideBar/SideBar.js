@@ -28,7 +28,7 @@ const SideBar = ({ itemSelected }) => {
 
   return (
     <div className='nav flex'>
-      <Title className='nav-title'>{dayTitle}</Title>
+      <div className='ad-wrapper-title'><Title className='nav-title'>{dayTitle}</Title></div>
       <img src={dayIcon} alt='icon climate addika' />
       <Title className='nav-title' level={4}>{date}</Title>
       <Title className='nav-title' level={4}>{`${name}, ${region}, ${country}`}</Title>
