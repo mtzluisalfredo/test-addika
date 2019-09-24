@@ -2,7 +2,7 @@
 
 body {
   height: 100vh;
-  min-width: 400px;
+  min-width: 480px;
 }
 
 [ant-click-animating-without-extra-node]:after {
@@ -41,6 +41,27 @@ body {
   }
 }
 
+@media (min-width: 768px) {
+  .ad-wrapper-btn-menu {
+    width: 50% !important;
+  }
+  .ad-wrapper-notifications {
+    margin-right: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ad-search {
+    display: none !important;
+  }
+  .ad-wrapper-btn-menu {
+    width: auto !important;
+  }
+  .ad-wrapper-notifications {
+    margin-right: 0;
+  }
+}
+
 .ad-header-actions {
   justify-content: flex-end;
   padding: 0 60px 0 10px;
@@ -48,4 +69,9 @@ body {
 
 .ad-name-user {
   margin: 0px 10px;
+}
+
+.ad-wrapper-badge {
+  width: 65px;
+  text-align: center;
 }

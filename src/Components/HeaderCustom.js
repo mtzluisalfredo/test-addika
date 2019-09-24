@@ -20,7 +20,7 @@ const HeaderCustom = ({ content }) => (
   <Layout className='ad-layout'>
     <Header>
       <Row>
-        <Col className='flex' span={12}>
+        <Col className='flex ad-wrapper-btn-menu' span={12}>
           <Button className='ad-btn-menu' type='primary' icon='menu' />
           <Input
             className='ad-search'
@@ -28,11 +28,23 @@ const HeaderCustom = ({ content }) => (
             placeholder='Search for any city...'
           />
         </Col>
-        <Col className='flex ad-header-actions' span={12}>
-          <div>
-            <Badge style={{ left: 8 }} count={2}>
-              <Icon type='message' style={{ fontSize: '18px', color: '#08c' }} theme='outlined' />
-            </Badge>
+        <Col className='flex ad-header-actions'>
+          <div className='flex ad-wrapper-notifications'>
+            <div className='ad-wrapper-badge'>
+              <Badge style={{ left: 8 }} count={2}>
+                <Icon type='message' style={{ fontSize: '18px', color: '#08c' }} theme='outlined' />
+              </Badge>
+            </div>
+            <div className='ad-wrapper-badge'>
+              <Badge style={{ left: 8 }} count={2}>
+                <Icon type='message' style={{ fontSize: '18px', color: '#08c' }} theme='outlined' />
+              </Badge>
+            </div>
+            <div className='ad-wrapper-badge'>
+              <Badge style={{ left: 8 }} count={2}>
+                <Icon type='message' style={{ fontSize: '18px', color: '#08c' }} theme='outlined' />
+              </Badge>
+            </div>
           </div>
           <div className='ad-name-user'>
             <Dropdown placement='bottomLeft' overlay={menu}>
