@@ -31,17 +31,17 @@ const HeaderCustom = ({ content }) => (
         <Col className='flex ad-header-actions'>
           <div className='flex ad-wrapper-notifications'>
             <div className='ad-wrapper-badge'>
-              <Badge className='ad-icon-badge' count={2}>
+              <Badge className='ad-icon-badge'>
                 <Icon type='wechat' theme='outlined' />
               </Badge>
             </div>
             <div className='ad-wrapper-badge'>
-              <Badge className='ad-icon-badge' count={2}>
+              <Badge className='ad-icon-badge' count={4}>
                 <Icon type='bell' theme='outlined' />
               </Badge>
             </div>
             <div className='ad-wrapper-badge'>
-              <Badge className='ad-icon-badge' count={2}>
+              <Badge className='ad-icon-badge' count={3}>
                 <Icon type='inbox' theme='outlined' />
               </Badge>
             </div>
